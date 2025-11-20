@@ -1,4 +1,4 @@
-/* Final Version v1 */
+/* version v4 */
 
 :root {
   /* default (dark) theme tokens */
@@ -514,7 +514,7 @@ body.theme-light .card {
 .badge-soft {
   padding: 3px 8px;
   border-radius: 999px;
-  font-size: 10px;
+  font-size: 4px;
   text-transform: uppercase;
   letter-spacing: .12em;
   background: rgba(15,23,42,.88);
@@ -988,3 +988,770 @@ body.theme-light .rr-item {
   opacity: .8;
   margin-top: 3px;
 }
+
+
+/* =========================================
+   MOBILE FIXES FOR HEADER-BOTTOM + RESEARCH
+========================================= */
+@media (max-width: 600px) {
+
+  .header-bottom-area {
+    width: 100%;
+    margin: 16px 0;
+    padding: 0 14px;
+  }
+
+  .header-bottom-inner {
+    padding: 14px 12px;
+    border-radius: 16px;
+    gap: 12px;
+  }
+
+  .related-research-card {
+    width: 100%;
+    margin: 16px 0;
+    padding: 14px 12px;
+    border-radius: 16px;
+  }
+
+  .rr-title {
+    font-size: 14px;
+  }
+
+  .rr-subtitle {
+    font-size: 11px;
+  }
+
+  .rr-item {
+    border-radius: 14px;
+    padding: 10px 12px;
+  }
+}
+
+
+/* ============================
+   MOBILE LAYOUT IMPROVEMENT
+   Header tidak terpotong + search rapi
+============================ */
+@media (max-width: 600px) {
+
+  /* HEADER FIX — tidak terpotong */
+  header {
+    padding: 26px 0 20px;        /* ruang top agar tidak kepotong */
+    border-radius: 0 0 20px 20px;
+    overflow: visible;           /* cegah crop */
+    min-height: auto;
+  }
+
+  .header-inner {
+    padding: 0 14px;
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-text h1 {
+    font-size: 22px;
+    line-height: 1.25;
+  }
+
+  .header-text p {
+    font-size: 13px;
+    max-width: 90%;
+  }
+
+  /* ===================================
+     SEARCH AREA FIX (rapi & spacing)
+  =================================== */
+  .header-bottom {
+    gap: 16px;
+  }
+
+  .search-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-box {
+    padding: 12px 16px;
+    border-radius: 16px;
+    width: 100%;
+  }
+
+  .search-box input {
+    font-size: 15px;
+  }
+
+  /* Search button & Random button sejajar rapi */
+  .btn-ghost {
+    padding: 10px 16px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
+    border-radius: 14px;
+  }
+
+  /* Mode selector */
+  .mode-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* ===================================
+     CATEGORY CHIPS
+  =================================== */
+  .kategori-row {
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  .chip {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+
+  /* ===================================
+     HEADER BOTTOM AREA CARD FIX
+  =================================== */
+  .header-bottom-area {
+    width: 100%;
+    margin: 18px 0 12px;
+    padding: 0 14px;
+  }
+
+  .header-bottom-inner {
+    padding: 16px 14px;
+    border-radius: 16px;
+    gap: 14px;
+  }
+
+  /* ===================================
+     RESEARCH CONTAINER FIX
+  =================================== */
+  .related-research-card {
+    width: 100%;
+    padding: 16px 14px;
+    margin: 18px 0;
+    border-radius: 16px;
+  }
+
+  .rr-list {
+    gap: 8px;
+  }
+
+  .rr-item {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+}
+
+/* =========================================
+   MOBILE FIX: AUTO DARI WIKI TEXT + HIDE HORIZONTAL SCROLL
+========================================= */
+@media (max-width: 600px) {
+
+  /* Hilangkan scroll horizontal */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100%;
+  }
+
+  /* Perbaiki tombol AUTO DARI WIKI agar 1 baris */
+  .btn-ghost, 
+  .article-controls .btn-mini,
+  .rr-item .auto-btn,
+  .card-header .btn-ghost {
+    white-space: nowrap !important;
+  }
+
+  /* Khusus area rekomendasi */
+  .card-header .btn-ghost {
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 10px;
+    max-width: fit-content;
+  }
+
+  /* Sesuaikan container agar tidak melebar */
+  .rec-item,
+  .rr-item,
+  .card,
+  .related-research-card,
+  .header-bottom-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Safety: nonaktifkan potensi overflow dari elemen dalam */
+  * {
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE DYNAMIC SEARCHBAR + BUTTON
+========================================= */
+@media (max-width: 600px) {
+
+  /* Bungkus input + button jadi bar horizontal */
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Bentuk search: input kiri, tombol kanan */
+  .search-box {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, .5);
+    width: 100%;
+  }
+
+  /* Input tetap melebar */
+  .search-box input {
+    width: 100%;
+    font-size: 15px;
+    padding-right: 10px;
+  }
+
+  /* Tombol search jadi icon button di kanan */
+  .search-action-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, .7);
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .search-action-btn:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+  }
+
+  .search-action-btn img,
+  .search-action-btn svg {
+    width: 18px;
+    height: 18px;
+    opacity: .85;
+  }
+
+  /* Tombol Artikel acak tetap full width */
+  .btn-ghost {
+    width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 14px;
+    padding: 10px 16px;
+  }
+
+  /* Kategori chips tetap rapi */
+  .kategori-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* ======================================
+   MOBILE FINAL SEARCH BAR + FIX BUTTON
+====================================== */
+@media (max-width: 600px) {
+
+  /* PERBAIKI SEARCH ROW */
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  /* SEARCH BOX MODERN */
+  .search-box {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(148,163,184,0.5);
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search-box input {
+    flex: 1;
+    font-size: 15px;
+  }
+
+  /* TOMBOL CARI (KANAN SEARCHBAR) */
+  .search-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(148,163,184,0.7);
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 18px;
+  }
+
+  .search-btn:hover {
+    border-color: var(--accent);
+    transform: scale(1.06);
+  }
+
+  /* Artikel acak full-width */
+  #randomBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 16px;
+    font-size: 15px;
+    border-radius: 14px;
+  }
+
+  /* Hilangkan scroll horizontal */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+}
+
+
+/* ======================================================
+   MOBILE UI FIX — FINAL VERSION (optimized for index.html)
+====================================================== */
+@media (max-width: 600px) {
+
+  /* GLOBAL MOBILE CLEANUP */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+
+  /* HEADER BOTTOM AREA */
+  .header-bottom-inner {
+    padding: 14px 14px !important;
+    border-radius: 16px !important;
+    gap: 16px !important;
+  }
+
+  /* MODE ROW */
+  .mode-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* ======================
+     SEARCHBAR FINAL FIX
+  ======================= */
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(15,23,42,.75);
+    border: 1px solid rgba(148,163,184,.45);
+    border-radius: 14px;
+    height: 44px;
+    padding: 6px 12px !important;
+    gap: 8px;
+  }
+
+  .search-icon {
+    width: 16px;
+    height: 16px;
+    opacity: .7;
+  }
+
+  /* INPUT LEBIH KECIL */
+  .search-box input {
+    font-size: 12px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* TOMBOL SEARCH KANAN */
+  #searchBtn {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(148,163,184,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px !important;
+    margin-left: 4px !important;
+    padding: 0 !important;
+  }
+
+  #searchBtn:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+  }
+
+  /* TOMBOL ARTIKEL ACAK */
+  #randomBtn {
+    width: 100%;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* CHIP CATEGORY */
+  .kategori-row {
+    gap: 8px;
+  }
+
+  .chip {
+    padding: 5px 12px !important;
+    font-size: 11px !important;
+  }
+
+  /* CARD DAN LIST SEDIKIT DIPERKECIL */
+  .rec-item {
+    padding: 8px 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .card {
+    padding: 12px !important;
+  }
+
+  /* ARTICLE PANEL */
+  .article-panel {
+    padding: 14px !important;
+  }
+
+  .article-title {
+    font-size: 18px !important;
+  }
+
+  .article-body {
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* ======================================================
+   MOBILE HEADER FIX — SMALLER & STICKY TOP
+====================================================== */
+@media (max-width: 600px) {
+
+  /* HEADER LEBIH TIPIS */
+  header {
+    padding: 14px 0 12px !important;
+    margin-top: 0 !important;
+    border-radius: 0 0 18px 18px !important;
+  }
+
+  /* STRUCTURE TOP: LOGO + TEXT */
+  .header-top {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* LOGO DIPERKECIL */
+  .logo-badge {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  /* JUDUL DIPERKECIL */
+  .header-text h1 {
+    font-size: 18px !important;
+    gap: 6px !important;
+  }
+
+  /* PIL "ENSIKLOPEDIA MINI" DIPERKECIL */
+  .header-pill {
+    font-size: 9px !important;
+    padding: 2px 7px !important;
+    border-radius: 999px !important;
+  }
+
+  /* SUBTITLE DIPERKECIL */
+  .header-text p {
+    font-size: 11px !important;
+    margin-top: 2px !important;
+    max-width: 95%;
+  }
+
+  /* AGAR HEADER MENEMPEL DI ATAS */
+  .header-inner {
+    padding-top: 0 !important;
+  }
+
+  /* TOGGLE TETAP NORMAL — JANGAN DIUBAH */
+  .header-actions {
+    margin-left: auto !important;
+    gap: 6px !important;
+  }
+}
+
+/* ==========================================================
+   MOBILE HEADER ULTRA-COMPACT — FINAL VERSION
+   (title small, pill smaller, toggles resized & aligned)
+========================================================== */
+@media (max-width: 600px) {
+
+  /* HEADER LEBIH TIPIS */
+  header {
+    padding: 10px 0 10px !important;
+    margin-top: 0 !important;
+    border-radius: 0 0 18px 18px !important;
+  }
+
+  .header-inner {
+    padding: 0 12px !important;
+  }
+
+  /* LOGO DIPERKECIL */
+  .logo-badge {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* TITLE AREA */
+  .header-text h1 {
+    font-size: 17px !important;
+    gap: 4px !important;
+    align-items: center !important;
+  }
+
+  /* PIL (Ensiklopedia Mini) SUPER KECIL */
+  .header-pill {
+    font-size: 8px !important;
+    padding: 1px 6px !important;
+    border-radius: 999px !important;
+    letter-spacing: .12em !important;
+    transform: translateY(-1px);
+  }
+
+  /* SUBTITLE DIPERKECIL */
+  .header-text p {
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    margin-top: 2px !important;
+    max-width: 90%;
+  }
+
+  /* HEADER-TOP: RAPAT & TERATUR */
+  .header-top {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* ========================================
+     TOGGLE BUTTONS (ID / EN / MOON / SOUND)
+     — kecilkan + dirapikan alignment
+  ========================================= */
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px !important;
+    margin-left: auto !important;
+  }
+
+  /* Bahasa toggle */
+  .lang-btn {
+    padding: 4px 8px !important;
+    font-size: 9px !important;
+    border-radius: 999px !important;
+  }
+
+  /* Ikon toggle */
+  .icon-btn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 14px !important;
+    border-radius: 50% !important;
+  }
+
+  /* ========================================
+     OVERALL LOOK: COMPACT & PREMIUM
+  ========================================= */
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
+
+/* =====================================================
+   ULTRA CLEAN & COMPACT MOBILE HEADER (FINAL VERSION)
+===================================================== */
+@media (max-width: 600px) {
+
+  /* HEADER AREA */
+  header {
+    padding: 10px 0 12px !important;
+    border-radius: 0 0 20px 20px !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+  }
+
+  .header-inner {
+    padding: 0 14px !important;
+  }
+
+  /* =====================================================
+     HEADER LAYOUT: LOGO + TEXT + TOGGLES RAPAT
+  ====================================================== */
+  .header-top {
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* LOGO */
+  .logo-badge {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* ============================
+     TITLE & SUBTITLE GROUP
+  ============================ */
+  .header-text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1px !important;
+  }
+
+  .header-text h1 {
+    font-size: 17px !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* "ENSIKLOPEDIA MINI" pill */
+  .header-pill {
+    font-size: 8px !important;
+    padding: 1px 6px !important;
+    border-radius: 999px !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  .header-text p {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    max-width: 95%;
+    margin-top: 2px !important;
+  }
+
+  /* ============================
+     TOGGLE AREA (ID / EN / Theme / Sound)
+  ============================ */
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+  }
+
+  .lang-btn {
+    padding: 3px 8px !important;
+    font-size: 9px !important;
+    border-radius: 999px !important;
+  }
+
+  .icon-btn {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 14px !important;
+    border-radius: 999px !important;
+    padding: 0 !important;
+  }
+
+  /* =====================================================
+     MAIN HEADER SPACING
+  ====================================================== */
+  .header-bottom-area {
+    margin-top: 10px !important;
+  }
+}
+
+/* =============================================
+   MOBILE TOGGLE TWO-ROW LAYOUT (FINAL)
+============================================= */
+@media (max-width: 600px) {
+
+  /* ACTION AREA */
+  .header-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: 6px 10px !important;
+    margin-left: auto !important;
+    align-items: center !important;
+  }
+
+  /* Bahasa toggle (ID / EN) */
+  .lang-toggle {
+    grid-column: 1 / span 2;        /* tetap 1 baris untuk dua tombol */
+    display: flex;
+    gap: 6px !important;
+    justify-content: center;
+  }
+
+  /* Mode ringan: ID & EN tetap kecil */
+  .lang-btn {
+    padding: 4px 10px !important;
+    font-size: 10px !important;
+    border-radius: 999px !important;
+  }
+
+  /* Baris berikutnya: 🌙 dan 🔈 */
+  #themeToggle {
+    grid-column: 1; /* posisi kiri bawah */
+    justify-self: center;
+  }
+
+  #soundToggle {
+    grid-column: 2; /* posisi kanan bawah */
+    justify-self: center;
+  }
+
+  /* Kecilkan tombol icon */
+  .icon-btn {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 16px !important;
+    border-radius: 50% !important;
+  }
+}
+
