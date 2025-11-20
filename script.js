@@ -489,7 +489,6 @@
     headerPill.textContent = trans.headerPill;
     headerSubtitle.textContent = trans.headerSubtitle;
     searchInput.placeholder = trans.searchPlaceholder;
-    searchBtnLabel.textContent = trans.searchBtn;
 
     recTitle.textContent = trans.recTitle;
     recSubtitle.textContent = trans.recSubtitle;

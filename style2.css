@@ -986,3 +986,133 @@ body.theme-light .rr-item {
   opacity: .8;
   margin-top: 3px;
 }
+
+/* =========================================
+   MOBILE MODERN IMPROVEMENTS (≤ 600px)
+   Tanpa mengubah style existing
+========================================= */
+@media (max-width: 600px) {
+
+  /* Layout shell */
+  .app-shell {
+    padding: 0 14px;
+  }
+
+  /* Header lebih compact & readable */
+  header {
+    border-radius: 0 0 24px 24px;
+    padding: 18px 0 12px;
+  }
+
+  .header-inner {
+    padding: 0 12px;
+  }
+
+  .header-top {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-text h1 {
+    font-size: 19px;
+  }
+
+  .header-text p {
+    font-size: 12px;
+  }
+
+  /* Search box lebih besar & nyaman disentuh */
+  .search-box {
+    padding: 12px 14px;
+    border-radius: 16px;
+  }
+
+  .search-box input {
+    font-size: 15px;
+  }
+
+  /* Chip kategori lebih besar & mudah ditekan */
+  .chip {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+
+  /* Grid utama → 1 kolom namun lebih "card-like" */
+  .main-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* Card pada mobile dibuat lebih elevated */
+  .card,
+  .article-panel,
+  .related-research-card {
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.35);
+  }
+
+  /* Rekomendasi item lebih breathable */
+  .rec-item {
+    padding: 10px 12px;
+    border-radius: 16px;
+  }
+
+  .rec-title {
+    font-size: 13px;
+  }
+
+  /* Artikel header menjadi vertikal */
+  .article-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Thumbnail lebih kecil agar konten lebih fokus */
+  .article-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+  }
+
+  /* Isi artikel lebih readable */
+  .article-body {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* Footer artikel lebih rapi */
+  .article-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Action buttons pada artikel dibuat horizontal scroll (modern UX) */
+  .article-controls {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    gap: 8px;
+  }
+
+  .article-controls::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .article-controls::-webkit-scrollbar-thumb {
+    background: rgba(100,116,139,.5);
+    border-radius: 20px;
+  }
+
+  /* Info card lebih compact */
+  .info-card {
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 16px;
+  }
+}
